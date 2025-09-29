@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lovneel - Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>📝 Disaster Safety Quiz</h1>
+  <p>Answer these questions to test your knowledge!</p>
+
+  <form id="quizForm">
+    <p>1. What should you do during an earthquake?</p>
+    <input type="radio" name="q1" value="wrong">Run outside quickly<br>
+    <input type="radio" name="q1" value="correct">Drop, cover, and hold on<br>
+    <input type="radio" name="q1" value="wrong">Stand near a window<br>
+
+    <p>2. What number should you call for emergency help in India?</p>
+    <input type="radio" name="q2" value="wrong">1000<br>
+    <input type="radio" name="q2" value="wrong">911<br>
+    <input type="radio" name="q2" value="correct">112<br>
+
+    <p>3. What should you do if there is a fire?</p>
+    <input type="radio" name="q3" value="correct">Stop, drop, and roll<br>
+    <input type="radio" name="q3" value="wrong">Hide under bed<br>
+    <input type="radio" name="q3" value="wrong">Run upstairs<br>
+
+    <br>
+    <button type="button" class="button" onclick="checkQuiz()">✅ Submit</button>
+  </form>
+
+  <p id="result" style="font-size:18px; font-weight:bold; margin-top:20px;"></p>
+
+  <button class="button" onclick="location.href='index.html'">🏠 Home</button>
+
+  <script>
+    function checkQuiz() {
+      let score = 0;
+      const answers = document.querySelectorAll('input[type="radio"]:checked');
+      answers.forEach(a => { if (a.value === "correct") score++; });
+
+      document.getElementById('result').innerText = 
+        "You scored " + score + " / 3! " + 
+        (score === 3 ? "🎉 Great job!" : "Keep learning!");
+    }
+  </script>
+
+</body>
+</html>
